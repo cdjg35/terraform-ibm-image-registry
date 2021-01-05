@@ -36,7 +36,7 @@ echo "Getting icr pull secret"
 oc extract secret/all-icr-io -n default --to="${ICR_DIR}"
 
 echo "Merging pull secrets"
-jq -s '.[0] * .[1]' "${GLOBAL_DIR}/.dockerconfigfile" "${ICR_DIR}/.dockerconfigfile" > "${RESULT_FILE}"
+jq -s '.[0] * .[1]' "${GLOBAL_DIR}/.dockerconfigjson" "${ICR_DIR}/.dockerconfigjson" > "${RESULT_FILE}"
 
 
 echo "Updating global pull secret"
